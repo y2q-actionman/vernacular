@@ -180,7 +180,7 @@
   `(progn
      (defsubst ,name (x)
        ,(reduce #'cl:list path :initial-value 'x :from-end t))
-     (defsetf name (x) (v)
+     (defsetf ,name (x) (v)
        (let ((acc (reduce #'cl:list ',path :initial-value x :from-end t)))
          `(setf ,acc ,v)))))
 
