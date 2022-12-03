@@ -143,7 +143,7 @@
 (defmacro cond (&rest clauses) `(cl:cond ,@(handle-default-keys clauses)))
 
 (defmacro shadow-case (name)
-  (let ((cl-name (find-symbol (string name) :cl)))
+  (cl:let ((cl-name (find-symbol (string name) :cl)))
     `(defmacro ,name (keyform &rest clauses)
        (list* ',cl-name keyform (handle-default-keys clauses)))))
 
