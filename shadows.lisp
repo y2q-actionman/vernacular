@@ -120,7 +120,7 @@
 
 (define-symbol-macro t cl:t)
 
-#+(or sbcl cmucl)
+#+(or sbcl cmucl allegro)
 (eval-always
   (def t cl:t))
 
