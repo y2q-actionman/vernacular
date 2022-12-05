@@ -299,7 +299,7 @@ yet been loaded."
 
 (defmacro import-bindings (module &body values)
   `(progn
-     ,@(mapcar (op `(import-binding ,module ,_)) values)))
+     ,@(mapcar (op (list 'import-binding module _)) values)))
 
 (defmacro import-function (name ref)
   `(vernacular/shadows:defalias ,name
