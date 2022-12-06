@@ -94,7 +94,9 @@
            (cond ((eql (next-char stream) #\!)
                   (skip-to-end-of-line stream))
                  ;; TODO #|, #;.
-                 (t (unread-char #\# stream))))
+                 (t
+                  #+allegro (advance-stream -1 stream) ; Allegro cannot `unread-char' twice at a time.
+                  #-allegro (unread-char #\# stream))))
           (t nil))))
 
 (defun skip-to-end-of-line (stream)
