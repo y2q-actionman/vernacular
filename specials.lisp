@@ -7,6 +7,7 @@
    #:*input*
    #:*output*
    #:*module*
+   #:*program-in-package*
    #:*program*
    #:*program-preamble*
    #:*language*
@@ -34,3 +35,5 @@ has to see before the other forms.")
   "The name (symbol) of the language to use if the module file does not specify a language.")
 (declaim (type symbol *default-lang*))
 (register-worker-special '*default-lang*)
+
+(defparameter *program-in-package* nil)

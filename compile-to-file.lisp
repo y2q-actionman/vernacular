@@ -46,6 +46,8 @@
   ;; inside the compiler lock?
   #+(or) (setf program (macroexpand-all program))
   (let* ((package *package*)
+         (*program-in-package*
+           `(cl:in-package ,(package-name package)))
          (*program-preamble*
            ;; Ensure that a file package exists whenever compiling at
            ;; the top level.
